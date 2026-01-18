@@ -20,6 +20,12 @@
       }
     }
 
+    /* ===== MOBILE CHART FIX ===== */
+    @media (max-width: 768px) {
+      .chart-container {
+      height: 260px;
+      }
+    }
 
     @media (max-width: 768px) {
       .chart-container {
@@ -157,19 +163,54 @@ let weightChart;
 /* ================= INIT CHART ================= */
 function initChart() {
   const ctx = document.getElementById("weightChart").getContext("2d");
+  const isMobile = window.innerWidth < 768;
+
   weightChart = new Chart(ctx, {
     type: "line",
     data: { labels: [], datasets: [] },
     options: {
       responsive: true,
-      plugins: { legend: { position: "bottom" } },
+      maintainAspectRatio: false, // IMPORTANT for mobile
+      plugins: {
+        legend: {
+          position: isMobile ? "top" : "bottom",
+          labels: {
+            boxWidth: 12,
+            font: {
+              size: isMobile ? 10 : 12
+            }
+          }
+        }
+      },
       scales: {
-        x: { title: { display: true, text: "Day (Weekly Reset)" } },
-        y: { beginAtZero: true, title: { display: true, text: "Weight (g)" } }
+        x: {
+          ticks: {
+            font: {
+              size: isMobile ? 10 : 12
+            }
+          },
+          title: {
+            display: true,
+            text: "Day (Weekly Reset)"
+          }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: {
+            font: {
+              size: isMobile ? 10 : 12
+            }
+          },
+          title: {
+            display: true,
+            text: "Weight (g)"
+          }
+        }
       }
     }
   });
 }
+
 
 /* ================= LOAD DATA ================= */
 async function fetchSheetData() {
@@ -252,7 +293,7 @@ function renderWeek(week) {
     weightChart.data.datasets.push({
       label: "Chick " + c,
       data: weekRows.map(r => Number(r["chick" + c]) || 0),
-      borderWidth: 2,
+      borderWidth: window.innerWidth < 768 ? 1.5 : 2,
       tension: 0.4,
       fill: false
     });
@@ -272,6 +313,7 @@ fetchSheetData();
 </body>
 
 </html>
+
 
 
 
