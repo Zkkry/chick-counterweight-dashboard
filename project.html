@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BVI 25/26</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4B5320, #556B2F);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #4B5320;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background: #556B2F;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 60px 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #4B5320;
+    }
+
+    .slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: 30px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Animation */
+.fade {
+  animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.about-project h2 {
+  color: #4B5320;
+  margin-bottom: 20px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.about-text h3 {
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.about-text ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.about-text li {
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-section h2 {
+  color: #4b5563;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.team-desc {
+  text-align: center;
+  color: #6b7280;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.team-card {
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+}
+
+.team-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 4px solid #4B5320;
+}
+
+.team-card h3 {
+  margin-bottom: 4px;
+  color: #4b5563;
+}
+
+.team-card span {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.team-card p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+    footer {
+      background: #4B5320;
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chick Counterweight Monitor</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+  <div class="card about-project">
+    <h2>About Our Project</h2>
+
+    <div class="about-content">
+
+      <div class="about-image">
+        <img src="img/3D.jpeg" alt="Project Image">
+      </div>
+
+      <div class="about-text">
+        <h3>Chick Counterweight Monitoring System</h3>
+        <p>
+          This project proposes the development of an automatic chicks counterweight system designed to measure 
+          the weight of chicks accurately and efficiently. The system aims to reduce human error and labor involved 
+          in manual weighing by introducing a sensor-based digital solution. Using a load cell integrated with a microcontroller, 
+          the system can provide real-time weight readings on a display. This innovation helps farmers monitor chick growth 
+          performance more effectively, ensuring better feed management and early detection of growth irregularities. 
+          The project contributes to improving efficiency and productivity in poultry management.
+        </p>
+        
+        <h3>Introduction</h3>
+        <p>
+          The poultry industry plays a vital role in food production, and monitoring chick growth is essential to ensure their 
+          healthy development. Traditionally, weighing chicks is performed manually using mechanical or digital scales, which is 
+          time-consuming and often stressful for the animals. Manual weighing also increases the likelihood of human error, making
+          it difficult to track accurate growth data. To address these challenges, an automatic chicks counterweight system is 
+          proposed to measure and record chick weights efficiently and consistently.
+        </p>
+
+        <h3>Expected Outcome</h3>
+        <ul>
+          <li>✔ Real-time weight monitoring</li>
+          <li>✔ Automatic data update from Google Sheets</li>
+          <li>✔ Simple and user-friendly dashboard</li>
+          <li>✔ Suitable for poultry research & smart farming</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="card team-section">
+    <h2>Our Team</h2>
+    <p class="team-desc">
+      This project is developed by a dedicated team working together
+      to design, develop, and implement the Portable Chick Counterweight Monitoring System.
+    </p>
+
+    <div class="team-grid">
+
+      <!-- Team Member 1 -->
+      <div class="team-card">
+        <img src="img/TMember1.jpeg" alt="Team Member 1">
+        <h3>Muhammad Zikry bin Khairul Lizam</h3>
+        <span>Project Leader/System Developer</span>
+        <p>
+          Responsible for project coordination, system planning,
+          and overall project management.
+        </p>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="team-card">
+        <img src="img/TMember2.jpeg" alt="Team Member 2">
+        <h3>Shahmi Amirul bin Shahrulnizam</h3>
+        <span>System integrater</span>
+        <p>
+          Handles data integration,
+          and real-time dashboard implementation.
+        </p>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-card">
+        <img src="img/TMember3.jpeg" alt="Team Member 3">
+        <h3>Muhammad Noralif bin Mohd Ridzuan</h3>
+        <span>Hardware & Project Report</span>
+        <p>
+          Responsible for sensor setup, data accuracy,
+          project report and performance analysis.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+  <footer>
+  © 2025 Chick Counterweight Dashboard
+  </footer>
+<script>
+let slideIndex = 0;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+
+  slides[slideIndex - 1].style.display = "block";
+
+  setTimeout(showSlides, 4000); // Tukar slide setiap 4 saat
+}
+
+showSlides();
+</script>
+
+</body>
+</html>

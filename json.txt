@@ -1,0 +1,2 @@
+/*O_o*/
+google.visualization.Query.setResponse({"version":"0.6","reqId":"0","status":"ok","sig":"1802288783","table":{"cols":[{"id":"A","label":"Chick Type","type":"string"},{"id":"B","label":"Count","type":"number","pattern":"General"},{"id":"C","label":"Status","type":"string"}],"rows":[{"c":[{"v":"Ayam Telo"},{"v":5.0,"f":"5"},{"v":"OK"}]},{"c":[{"v":"Ayam Daging"},{"v":5.0,"f":"5"},{"v":"OK"}]}],"parsedNumHeaders":1}});

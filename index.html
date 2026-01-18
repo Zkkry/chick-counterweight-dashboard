@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BVI 25/26</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4B5320, #556B2F);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #4B5320;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background: #556B2F;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 60px 40px;
+    }
+
+    .features .card a {
+      text-decoration: none;
+      color: inherit;        
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #4B5320;
+    }
+
+    .slideshow-container {
+      max-width: 100%;
+      position: relative;
+      margin: 30px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+  /* Animation */
+  .fade {
+    animation: fadeEffect 1.5s;
+  }
+
+  @keyframes fadeEffect {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+
+    footer {
+      background: #4B5320;
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chick Counterweight Monitor</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Sulam 25/26</h2>
+    <p>UMPSA X KV(P)CHENOR</p>
+    <!-- SLIDESHOW -->
+     <div class="slideshow-container">
+
+    <div class="slide fade">
+      <img src="img/slide1.jpeg" alt="Slide 1">
+      <div class="caption">BVI 2025</div>
+    </div>
+
+    <div class="slide fade">
+      <img src="img/slide2.jpeg" alt="Slide 2">
+      <div class="caption">Site Visit</div>
+    </div>
+
+    <div class="slide fade">
+      <img src="img/slide3.jpeg" alt="Slide 3">
+      <div class="caption">BVI 2025</div>
+    </div>
+
+</div>
+
+    <a href="data.html"><button>Get Started</button></a>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <a href="project.html"><h3>Our Project</h3>
+      <p>Enhancing poultry farming efficiency through innovative technology.</p></a>
+    </div>
+    <div class="card">
+      <a href="listData.php"><h3>Previous Data</h3>
+      <p>All the previous data at here.</p></a>
+    </div>
+  </section>
+
+  <footer>
+  © 2025 Chick Counterweight Dashboard
+  </footer>
+<script>
+let slideIndex = 0;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+
+  slides[slideIndex - 1].style.display = "block";
+
+  setTimeout(showSlides, 4000); // Tukar slide setiap 4 saat
+}
+
+showSlides();
+</script>
+
+</body>
+</html>
