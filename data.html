@@ -289,17 +289,21 @@ function renderWeek(week) {
 
   /* ---- TABLE BODY ---- */
   document.querySelector("#sheetData tbody").innerHTML =
-    weekRows.map((r, i) => `
-      <tr>
-        <td>${i + 1}</td>
-        ${[1,2,3,4,5,6,7,8,9,10].map(c =>
-          `<td>${r["chick"+c] ?? ""} g</td>`
-        ).join("")}
-        <td>${r.feed ?? ""}</td>
-        <td>${r.gain ?? ""}</td>
-        <td>${r.fcr ?? ""}</td>
-      </tr>
-    `).join("");
+  weekRows.map((r, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      ${[1,2,3,4,5,6,7,8,9,10].map(c =>
+        `<td>${r["chick"+c] ?? ""} g</td>`
+      ).join("")}
+      <td>${r.feed ?? ""}</td>
+      <td>
+        ${r.gain !== undefined && r.gain !== null
+          ? Number(r.gain).toFixed(2)
+          : ""}
+      </td>
+      <td>${r.fcr ?? ""}</td>
+    </tr>
+  `).join("");
 
   /* ---- CHART (ALL 10 CHICKS) ---- */
   weightChart.data.labels = weekRows.map((_, i) => "Day " + (i + 1));
@@ -329,6 +333,7 @@ fetchSheetData();
 </body>
 
 </html>
+
 
 
 
